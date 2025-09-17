@@ -1,0 +1,11 @@
+venv/
+media/
+staticfiles/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+build/
+.tmp/
+.django/
+data/
