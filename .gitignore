@@ -1,0 +1,88 @@
+# --- Python defaults ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# --- Django specific ---
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Media & static (collected or uploaded files)
+media/
+staticfiles/
+
+# --- Environments ---
+.env
+.envrc
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# --- IDE/editor configs ---
+.idea/
+.vscode/
+.spyderproject
+.spyproject
+.ropeproject
+
+# --- Jupyter ---
+.ipynb_checkpoints
+
+# --- Type checking ---
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# --- Others ---
+cython_debug/
