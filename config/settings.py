@@ -22,7 +22,7 @@ ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['*'])
 
 
 LOCAL_APPS = [
-    'products',
+    'products.apps.ProductsConfig',
 ]
 
 # Application definition
@@ -30,6 +30,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'django_elasticsearch_dsl',
 ]
 
 DJANGO_APPS = [
@@ -169,9 +170,16 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-ELASTICSEARCH_HOST = os.getenv('ELASTICSEARCH_HOST', 'elasticsearch')
-ELASTICSEARCH_PORT = os.getenv('ELASTICSEARCH_PORT', '9200')
-ELASTICSEARCH_PRODUCT_INDEX = os.getenv('ELASTICSEARCH_PRODUCT_INDEX', 'products')
+ELASTICSEARCH_HOST = env('ELASTICSEARCH_HOST', default='elasticsearch')
+ELASTICSEARCH_PORT = env.int('ELASTICSEARCH_PORT', default=9200)
+ELASTICSEARCH_SCHEME = env('ELASTICSEARCH_SCHEME', default='http')
+ELASTICSEARCH_PRODUCT_INDEX = env('ELASTICSEARCH_PRODUCT_INDEX', default='products')
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': f"{ELASTICSEARCH_SCHEME}://{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}",
+    }
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
